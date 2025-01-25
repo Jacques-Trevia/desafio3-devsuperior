@@ -4,12 +4,18 @@ import java.time.LocalDate;
 
 import com.devsuperior.desafio3.entities.Client;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+
 public class ClientDTO {
 
 	private Long id;
+	
+	@NotBlank(message = "Nome não pode está vazio.")
 	private String name;
 	private String cpf;
 	private Double income;
+	@PastOrPresent(message = "Não pode colocar datas futuras.")
 	private LocalDate birthDate;
 	private Integer children;
 	
